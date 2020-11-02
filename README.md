@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 ## Usage
 ```
-python covid19.py 
+python covid19.py
 ```
 
 ## Reasons
