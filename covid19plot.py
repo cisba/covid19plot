@@ -35,11 +35,12 @@ for graph_name in ('', 'log', 'hos', 'tam', 'hosp', 'tamp'):
         legend=["Hospitalized ICU","Hospitalized not ICU"]
 
     elif graph_name in ('tam'):
-        df = df_all.loc[:, ("isolamento_domiciliare", "tamponi")]
+        df = df_all.loc[:, ("nuovi_positivi", "tamponi")]
         # Daily data have to be calculated subtracting the previous day total
         df["nuovi_tamponi"] = df["tamponi"] - df["tamponi"].shift(1)
-        df = df[["isolamento_domiciliare", "nuovi_tamponi"]]
-        legend=["Home isolation", "Daily tests"]
+        df["nuovi_negativi"] = df["nuovi_tamponi"] - df["nuovi_positivi"]
+        df = df[["nuovi_positivi", "nuovi_negativi", "nuovi_tamponi"]]
+        legend=["Daily positive cases","Daily negative cases", "Daily tests"]
 
     elif graph_name=='hosp':
         percentage = True
