@@ -18,7 +18,8 @@ selection=["data","terapia_intensiva", "ricoverati_con_sintomi", "isolamento_dom
 df_all = pd.read_csv(url, usecols=selection, index_col=0, parse_dates=['data'])
 
 # repeat for each graph
-for graph_name in ('', 'log', 'hos', 'tam', 'hosp', 'tamp'):
+#for graph_name in ('', 'log', 'hos', 'tam', 'hosp', 'tamp'):
+for graph_name in ('hos',):
 
     # create dataframe from url using columns selection
     percentage = False
